@@ -21,5 +21,13 @@ class ProductPage(BasePage):
         except NoSuchElementException:
             assert False, "Element didn't founded on page, check selectors"
 
-        assert expected_name.text in book_name.text, "Expected book name not in site message; "
+        assert expected_name.text == book_name.text, f"Expected book name {expected_name}, in message {book_name}; "
         assert book_price.text == basket_price.text, "Basket price didn't equal book price; "
+
+
+    def no_success_message_product_page(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success mesage on page, expected: not on page; "
+
+
+    def success_message_dissapear_product_page(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE)
