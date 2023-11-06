@@ -7,6 +7,7 @@ class LoginPage(BasePage):
         self.should_be_login_form()
         self.should_be_register_form()
 
+
     def should_be_login_url(self):
         assert "login" in self.browser.current_url, "Current url didn't contain 'login'"
 
@@ -19,3 +20,10 @@ class LoginPage(BasePage):
         assert self.is_element_present(*LoginPageLocators.REG_EMAIL_LINK), "Register email form is not presented; "
         assert self.is_element_present(*LoginPageLocators.REG_PASSWORD_LINK), "Register password form is not presented; "
         assert self.is_element_present(*LoginPageLocators.REG_REPEAT_PASSWORD_LINK), "Register repeat password form is not presented; "
+
+
+    def register_new_user(self, email, password):
+        self.browser.find_element(*LoginPageLocators.REG_EMAIL_LINK).send_keys(email)
+        self.browser.find_element(*LoginPageLocators.REG_PASSWORD_LINK).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REG_REPEAT_PASSWORD_LINK).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REGISTER_BUTTON).click()

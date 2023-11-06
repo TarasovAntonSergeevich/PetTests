@@ -4,6 +4,7 @@ class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     BASKET_BUTTON_LINK = (By.CSS_SELECTOR, '[href="/ru/basket/"]')
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 class BasketPageLocators():
     BASKET_BUTTON_LINK = (By.CSS_SELECTOR, '[href="/ru/basket/"]')
@@ -16,7 +17,7 @@ class LoginPageLocators():
     REG_EMAIL_LINK = (By.CSS_SELECTOR, '[name="registration-email"]')
     REG_PASSWORD_LINK = (By.CSS_SELECTOR, '[name="registration-password1"]')
     REG_REPEAT_PASSWORD_LINK = (By.CSS_SELECTOR, '[name="registration-password2"]')
-
+    REGISTER_BUTTON = (By.CSS_SELECTOR, '[value="Register"]')
 
 class ProductPageLocators():
     ADD_BUTTON_LINK = (By.CSS_SELECTOR, '[value="Добавить в корзину"]')
