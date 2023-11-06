@@ -30,4 +30,4 @@ class ProductPage(BasePage):
 
 
     def success_message_dissapear_product_page(self):
-        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE)
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "After 4 seconds message didn't dissapear"
