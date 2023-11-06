@@ -8,32 +8,14 @@ class LoginPage(BasePage):
         self.should_be_register_form()
 
     def should_be_login_url(self):
-        url = self.browser.current_url
-        if "login" in url:
-            assert True
-        else:
-            assert False, "Current url didn't contains 'login'"
+        assert "login" in self.browser.current_url, "Current url didn't contain 'login'"
+
 
     def should_be_login_form(self):
-        errors = ""
-        if not self.is_element_present(*LoginPageLocators.LOGIN_EMAIL_LINK):
-            errors += "Login email form is not presented; "
-        if not self.is_element_present(*LoginPageLocators.LOGIN_PASSWORD_LINK):
-            errors += "Login password form is not presented; "
-        if not errors:
-            assert True
-        else:
-            assert False, errors
+        assert self.is_element_present(*LoginPageLocators.LOGIN_EMAIL_LINK), "Login email form is not presented; "
+        assert self.is_element_present(*LoginPageLocators.LOGIN_PASSWORD_LINK), "Login password form is not presented; "
 
     def should_be_register_form(self):
-        errors = ""
-        if not self.is_element_present(*LoginPageLocators.REG_EMAIL_LINK):
-            errors += "Register email form is not presented; "
-        if not self.is_element_present(*LoginPageLocators.REG_PASSWORD_LINK):
-            errors += "Register password form is not presented; "
-        if not self.is_element_present(*LoginPageLocators.REG_REPEAT_PASSWORD_LINK):
-            errors += "Register repeat password form is not presented; "
-        if not errors:
-            assert True
-        else:
-            assert False, errors
+        assert self.is_element_present(*LoginPageLocators.REG_EMAIL_LINK), "Register email form is not presented; "
+        assert self.is_element_present(*LoginPageLocators.REG_PASSWORD_LINK), "Register password form is not presented; "
+        assert self.is_element_present(*LoginPageLocators.REG_REPEAT_PASSWORD_LINK), "Register repeat password form is not presented; "
