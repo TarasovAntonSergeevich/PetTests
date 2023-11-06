@@ -5,7 +5,6 @@ from selenium import  webdriver
 def browser():
     print("\n===  Start browser for test  ===")
     browser = webdriver.Chrome()
-    browser.implicitly_wait(10)
     yield browser
     print("\n===  Shutdown browser    ===")
     browser.quit()
